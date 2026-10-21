@@ -108,16 +108,20 @@ export function start(hero, mark, onExit) {
 	function nextWave() {
 		wave++;
 		invaders = [];
-		const gridW = COLS * CELL_W;
+		const px = W < 480 ? 2 : PX;
+		const cellW = Math.min(CELL_W, Math.floor((W - 64) / COLS));
+		const cellH = W < 480 ? 32 : CELL_H;
+		const gridW = COLS * cellW;
 		const left = Math.max(16, (W - gridW) / 2);
 		ROWS.forEach((row, r) => {
 			for (let c = 0; c < COLS; c++) {
-				const w = SPRITES[row.kind][0][0].length * PX;
+				const w = SPRITES[row.kind][0][0].length * px;
 				invaders.push({
-					x: left + c * CELL_W + (CELL_W - w) / 2,
-					y: 70 + r * CELL_H + Math.min(wave - 1, 4) * 12,
+					x: left + c * cellW + (cellW - w) / 2,
+					y: 70 + r * cellH + Math.min(wave - 1, 4) * 12,
 					w,
-					h: 8 * PX,
+					h: 8 * px,
+					px,
 					row: r,
 					col: c,
 					...row,
@@ -188,12 +192,13 @@ export function start(hero, mark, onExit) {
 		if (formation.timer <= 0) {
 			formation.timer = interval;
 			formation.frame ^= 1;
-			const step = 10 * formation.dx;
+			const step = (W < 480 ? 6 : 10) * formation.dx;
+			const drop = W < 480 ? 12 : 16;
 			const minX = Math.min(...invaders.map((i) => i.x));
 			const maxX = Math.max(...invaders.map((i) => i.x + i.w));
 			if (maxX + step > W - 12 || minX + step < 12) {
 				formation.dx *= -1;
-				for (const i of invaders) i.y += 16;
+				for (const i of invaders) i.y += drop;
 			} else {
 				for (const i of invaders) i.x += step;
 			}
@@ -262,11 +267,12 @@ export function start(hero, mark, onExit) {
 	}
 
 	function drawSprite(inv) {
+		const px = inv.px || PX;
 		const rows = SPRITES[inv.kind][formation.frame];
 		ctx.fillStyle = inv.row === 0 ? C.accent : inv.row === 3 ? C.muted : C.text;
 		for (let y = 0; y < rows.length; y++) {
 			for (let x = 0; x < rows[y].length; x++) {
-				if (rows[y][x] === "1") ctx.fillRect(inv.x + x * PX, inv.y + y * PX, PX, PX);
+				if (rows[y][x] === "1") ctx.fillRect(inv.x + x * px, inv.y + y * px, px, px);
 			}
 		}
 	}
@@ -349,24 +355,34 @@ export function start(hero, mark, onExit) {
 		ctx.stroke();
 		ctx.restore();
 
-		text(`bugs squashed: ${score}`, 16, 28, { col: C.text });
-		text(`wave ${wave}  ·  best ${Math.max(high, score)}`, W / 2, 28, { align: "center" });
-		text("lives: YOLO", W - 90, 28, { col: C.accent, align: "right", weight: 700 });
+		const compact = W < 540;
+		if (compact) {
+			text(`bugs: ${score}`, 14, 28, { size: 12, col: C.text });
+			text(`w${wave} · hi ${Math.max(high, score)}`, W / 2 - 14, 28, { size: 12, align: "center" });
+			text("YOLO", W - 76, 28, { size: 12, col: C.accent, align: "right", weight: 700 });
+		} else {
+			text(`bugs squashed: ${score}`, 16, 28, { col: C.text });
+			text(`wave ${wave}  ·  best ${Math.max(high, score)}`, W / 2, 28, { align: "center" });
+			text("lives: YOLO", W - 90, 28, { col: C.accent, align: "right", weight: 700 });
+		}
 
 		if (state === "ready") {
-			text(`wave ${wave}`, W / 2, H / 2 + 40, { size: 28, col: C.accent, align: "center", weight: 700 });
-			text(WAVE_LINES[(wave - 1) % WAVE_LINES.length], W / 2, H / 2 + 68, { align: "center" });
+			text(`wave ${wave}`, W / 2, H / 2 + 40, { size: compact ? 24 : 28, col: C.accent, align: "center", weight: 700 });
+			text(WAVE_LINES[(wave - 1) % WAVE_LINES.length], W / 2, H / 2 + 68, { size: compact ? 11 : 13, align: "center" });
 		}
 		if (state === "play" && wave === 1 && stateTime < 4) {
 			const hint = touch ? "drag to move · hold to fire" : "← → move  ·  space fire  ·  esc quit";
-			text(hint, W / 2, 52, { align: "center" });
+			text(hint, W / 2, 52, { size: compact ? 12 : 13, align: "center" });
 		}
 		if (state === "over") {
-			text("you only live once", W / 2, H / 2 - 24, { size: 40, col: C.accent, align: "center", weight: 700 });
-			text(`> ${quip}`, W / 2, H / 2 + 10, { col: C.text, align: "center" });
-			text(`${score} bugs squashed${score >= high && score > 0 ? "  ·  new best" : ""}`, W / 2, H / 2 + 38, { align: "center" });
+			text("you only live once", W / 2, H / 2 - 24, { size: compact ? 24 : 40, col: C.accent, align: "center", weight: 700 });
+			text(`> ${quip}`, W / 2, H / 2 + 10, { size: compact ? 12 : 13, col: C.text, align: "center" });
+			text(`${score} bugs squashed${score >= high && score > 0 ? "  ·  new best" : ""}`, W / 2, H / 2 + 38, { size: compact ? 12 : 13, align: "center" });
 			if (stateTime > 0.8) {
-				text(`${touch ? "tap" : "space"}: continue using your agent without accepting permissions`, W / 2, H / 2 + 72, { col: C.accent, align: "center" });
+				const prompt = compact
+					? `${touch ? "tap" : "space"}: continue without permissions`
+					: `${touch ? "tap" : "space"}: continue using your agent without accepting permissions`;
+				text(prompt, W / 2, H / 2 + 72, { size: compact ? 12 : 13, col: C.accent, align: "center" });
 				if (!touch) text("esc: exit", W / 2, H / 2 + 94, { align: "center" });
 			}
 		}
@@ -427,7 +443,7 @@ export function start(hero, mark, onExit) {
 	addEventListener("keyup", onKeyUp);
 	addEventListener("resize", resize);
 	canvas.addEventListener("pointerdown", onPointerDown);
-	canvas.addEventListener("pointermove", (e) => (touch ? e.buttons && onPointer(e) : onPointer(e)));
+	canvas.addEventListener("pointermove", (e) => (touch ? pointerX !== null && onPointer(e) : onPointer(e)));
 	canvas.addEventListener("pointerup", onPointerUp);
 	canvas.addEventListener("pointercancel", onPointerUp);
 	canvas.addEventListener("mouseleave", onMouseLeave);

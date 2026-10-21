@@ -1,6 +1,7 @@
 (() => {
 	const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 	const fine = matchMedia("(pointer: fine)").matches;
+	const touch = matchMedia("(pointer: coarse)").matches;
 	const toast = document.querySelector(".toast");
 
 	// Reveal on scroll; children of [data-stagger] come in one after another
@@ -180,7 +181,9 @@
 			heroEl.classList.remove("playing");
 			discharge();
 		});
-		say("<b>YOLO mode on.</b> One life, no confirmations. ← → move, space fire.");
+		say(touch
+			? "<b>YOLO mode on.</b> One life, no confirmations. Drag to move, hold to fire."
+			: "<b>YOLO mode on.</b> One life, no confirmations. ← → move, space fire.");
 	});
 
 	// ↑ ↑ ↓ ↓ ← → ← → B A

@@ -45,7 +45,7 @@ code { font-family: var(--mono); font-size: 0.92em; font-variant-ligatures: none
 .wrap {
 	max-width: 1080px;
 	margin: 0 auto;
-	padding: 0 24px;
+	padding-inline: 24px;
 }
 
 /* Mark: the bright dot walks along the array, like an iteration cursor */
@@ -149,6 +149,7 @@ code { font-family: var(--mono); font-size: 0.92em; font-variant-ligatures: none
 	width: 340px;
 	height: 340px;
 	color: var(--border);
+	cursor: pointer;
 	transform: translate(calc(var(--px, 0) * 18px), calc(var(--py, 0) * 18px)) rotate(calc(var(--px, 0) * 3deg));
 	transition: transform 0.6s var(--ease);
 	animation: float 7s ease-in-out infinite alternate;
@@ -566,13 +567,27 @@ h1 {
 	.timeline li:last-child { grid-column: 1 / -1; }
 	.timeline::before { display: none; }
 	.hero { grid-template-columns: 1fr; }
-	.hero-mark { display: none; }
+	.hero-mark {
+		grid-column: 1;
+		grid-row: auto;
+		order: 1;
+		justify-self: center;
+		width: 200px;
+		height: 200px;
+		margin-top: 36px;
+	}
 }
 
 @media (max-width: 640px) {
-	.wrap { padding: 0 16px; }
+	.wrap { padding-inline: 16px; }
+	.nav { padding-top: 28px; padding-bottom: 20px; }
 	.nav nav a:not(:last-child) { display: none; }
-	.hero { padding-top: 56px; padding-bottom: 72px; }
+	.hero { padding-top: 40px; padding-bottom: 56px; }
+	.hero-mark {
+		width: 152px;
+		height: 152px;
+		margin-top: 28px;
+	}
 	.why, .about { padding-top: 88px; }
 	.why-lede { font-size: 19px; }
 	.timeline { grid-template-columns: 1fr; }

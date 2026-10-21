@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>forEach developer — open-source studio by Sergio Marin</title>
+	<meta name="description" content="forEach developer is the open-source studio of Sergio Marin: local-first desktop and mobile apps built with Zig, Rust and the web, shared in the open for each developer to read and learn from." />
+	<link rel="canonical" href="https://foreachdeveloper.com/" />
+	<meta name="theme-color" content="#14161B" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://foreachdeveloper.com/" />
+	<meta property="og:title" content="forEach developer" />
+	<meta property="og:description" content="Open tools for each developer. Local-first, open-source apps by Sergio Marin." />
+	<meta property="og:image" content="https://foreachdeveloper.com/assets/brand/og.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<link rel="icon" href="/favicon.ico" sizes="48x48" />
+	<link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+	<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="/styles.css" />
+	<script>document.documentElement.classList.add("js")</script>
+	<script src="/script.js" defer></script>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "forEach developer",
+		"url": "https://foreachdeveloper.com/",
+		"logo": "https://foreachdeveloper.com/assets/brand/avatar-512.png",
+		"founder": {
+			"@type": "Person",
+			"name": "Sergio Marin",
+			"url": "https://highercomve.github.io/",
+			"sameAs": ["https://github.com/highercomve", "https://www.linkedin.com/in/highercomve"]
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="xp" aria-hidden="true"><span></span></div>
+
+	<header class="wrap nav">
+		<a class="brand" href="/" aria-label="forEach developer, home">
+			<svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+				<g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M17 13H9v38h8" />
+					<path d="M47 13h8v38h-8" />
+				</g>
+				<circle class="d1" cx="21.5" cy="32" r="4.2" />
+				<circle class="d2" cx="32" cy="32" r="4.2" />
+				<circle class="d3" cx="42.5" cy="32" r="4.2" />
+			</svg>
+			<span>forEach<b>.</b><i>developer</i></span>
+		</a>
+		<nav>
+			<a href="#projects">Projects</a>
+			<a href="#why">Why</a>
+			<a href="#about">About</a>
+			<a href="https://github.com/highercomve">GitHub</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="wrap hero">
+			<svg class="mark hero-mark" viewBox="0 0 64 64" aria-hidden="true">
+				<g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M17 13H9v38h8" />
+					<path d="M47 13h8v38h-8" />
+				</g>
+				<circle class="d1" cx="21.5" cy="32" r="3.6" />
+				<circle class="d2" cx="32" cy="32" r="3.6" />
+				<circle class="d3" cx="42.5" cy="32" r="3.6" />
+			</svg>
+
+			<p class="kicker"><code data-type="developers.forEach(dev =&gt; build(dev))">developers.forEach(dev =&gt; build(dev))</code><span class="caret" aria-hidden="true"></span></p>
+			<h1>
+				<span class="rise" style="--d: 0">Open</span>
+				<span class="rise" style="--d: 1">tools</span><br />
+				<span class="rise" style="--d: 2">for</span>
+				<span class="rise" style="--d: 3">each</span><br />
+				<span class="rise rot-wrap" style="--d: 4"><span class="rot" data-words="developer|student|tinkerer|night owl|player two">developer</span><span class="caret" aria-hidden="true"></span></span>
+			</h1>
+			<p class="lede rise" style="--d: 6">
+				A one-person open-source studio. I build apps that run on <em>your</em> machine,
+				AI included, and I leave the source open so anyone can see how they work.
+			</p>
+			<div class="cta rise" style="--d: 7">
+				<a class="btn" href="#projects">See the projects</a>
+				<a class="btn ghost" href="#why">Why forEach? ↓</a>
+			</div>
+		</section>
+
+		<section id="projects" class="wrap">
+			<h2 class="section-title" data-reveal><span>01</span> Projects</h2>
+			<ul class="grid" data-stagger>
+				<li class="card featured" data-reveal>
+					<div class="card-head">
+						<img class="icon" src="/assets/projects/oriel.svg" width="48" height="48" alt="" />
+						<h3>Oriel</h3>
+						<span class="tag">framework</span>
+					</div>
+					<p class="tagline">Apps in Zig. UI with the web.</p>
+					<p>
+						Build desktop and mobile apps with a React, Vue, Svelte or plain HTML frontend
+						and a Zig backend, joined by typed commands. System WebView or an experimental
+						native renderer, signed updates, and built-in local AI and speech.
+					</p>
+					<p class="meta">Zig · Linux · Windows · macOS · Android · iOS preview</p>
+					<div class="links">
+						<a href="https://oriel.foreachdeveloper.com">oriel.foreachdeveloper.com</a>
+						<a class="src" href="https://github.com/highercomve/Oriel">source</a>
+					</div>
+				</li>
+
+				<li class="card" data-reveal>
+					<div class="card-head">
+						<img class="icon" src="/assets/projects/ghostpen.png" width="48" height="48" alt="" />
+						<h3>GhostPen</h3>
+						<span class="tag">MIT</span>
+					</div>
+					<p class="tagline">Your AI. Your machine. Your words.</p>
+					<p>
+						Select text in any app to rewrite, proofread or translate it with a model that
+						runs on your computer. Also does dictation, live captions, meeting transcripts
+						and read-aloud, all offline.
+					</p>
+					<p class="meta">Oriel · Zig · Whisper · Qwen / Gemma</p>
+					<div class="links">
+						<a href="https://ghostpen.foreachdeveloper.com">ghostpen.foreachdeveloper.com</a>
+						<a class="src" href="https://github.com/highercomve/GhostPen">source</a>
+					</div>
+				</li>
+
+				<li class="card" data-reveal>
+					<div class="card-head">
+						<img class="icon" src="/assets/projects/ghostreel.svg" width="48" height="48" alt="" />
+						<h3>GhostReel</h3>
+						<span class="tag">MIT</span>
+					</div>
+					<p class="tagline">Search inside your videos, then cut them into a story, locally.</p>
+					<p>
+						Indexes your footage with speech transcripts and keyframe descriptions, so you can
+						find a moment by what was said or shown. Draft a cut by chatting with a model and
+						export to MP4 or Premiere Pro.
+					</p>
+					<p class="meta">Rust · Tauri · whisper.cpp · llama.cpp · MCP</p>
+					<div class="links">
+						<a href="https://ghostreel.foreachdeveloper.com">ghostreel.foreachdeveloper.com</a>
+						<a class="src" href="https://github.com/highercomve/GhostReel">source</a>
+					</div>
+				</li>
+
+				<li class="card" data-reveal>
+					<div class="card-head">
+						<img class="icon" src="/assets/projects/hollershare.svg" width="48" height="48" alt="" />
+						<h3>HollerShare</h3>
+						<span class="tag">GPL-3.0</span>
+					</div>
+					<p class="tagline">Share files and text with Android over Quick Share.</p>
+					<p>
+						Send files, links and clipboard text between your computer and Android phones on
+						the same network. Transfers are encrypted, confirmed with a PIN, and need the
+						receiver's approval. Comes with a headless CLI.
+					</p>
+					<p class="meta">Zig · Oriel native renderer · Rust</p>
+					<div class="links">
+						<a href="https://hollershare.foreachdeveloper.com">hollershare.foreachdeveloper.com</a>
+						<a class="src" href="https://github.com/highercomve/hollershare">source</a>
+					</div>
+				</li>
+
+				<li class="card" data-reveal>
+					<div class="card-head">
+						<img class="icon" src="/assets/projects/ghostpantry.svg" width="48" height="48" alt="" />
+						<h3>GhostPantry</h3>
+						<span class="tag">MIT</span>
+					</div>
+					<p class="tagline">A little less waste.</p>
+					<p>
+						Take a photo of your fridge or pantry and it detects items and estimates how much
+						is left, then builds a shopping list for what's running low. Works offline, with
+						on-device vision.
+					</p>
+					<p class="meta">Oriel · Zig · React · SQLite · Android</p>
+					<div class="links">
+						<a href="https://ghostpantry.foreachdeveloper.com">ghostpantry.foreachdeveloper.com</a>
+						<a class="src" href="https://github.com/highercomve/ghostpantry">source</a>
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<section id="why" class="wrap why">
+			<h2 class="section-title" data-reveal><span>02</span> Why forEach</h2>
+			<p class="why-lede" data-reveal>
+				Because nobody starts out knowing how. You start by poking at something you love
+				until it does what you want, and it goes faster when someone has left the source
+				open for you, and somebody else is happy to explain it.
+			</p>
+
+			<ol class="timeline" data-stagger>
+				<li data-reveal>
+					<span class="idx">[0]</span>
+					<h3>The first loop</h3>
+					<p>
+						I learned to code because I wanted to change the rules of a game. No classes,
+						just forums, late nights, and a lot of broken builds. Still my favourite way to learn.
+					</p>
+				</li>
+				<li data-reveal>
+					<span class="idx">[1]</span>
+					<h3>2009 · Venezuela</h3>
+					<p>
+						I started EscuelaWeb and spent years teaching web development. The best moment
+						was always the same one: somebody's first loop running and the look on their face.
+					</p>
+				</li>
+				<li data-reveal>
+					<span class="idx">[2]</span>
+					<h3>Community, out loud</h3>
+					<p>
+						In <a href="https://www.youtube.com/@rubyve5585">RubyVE</a>, the Ruby community back home,
+						I organised our podcasts and got people on the mic to share what they'd learned.
+						That's when I understood: a community is a loop where everyone gets a turn.
+					</p>
+				</li>
+				<li data-reveal>
+					<span class="idx">[3]</span>
+					<h3>A new home in Chile</h3>
+					<p>
+						New country, same habit. Nearly two decades now of distributed systems, edge
+						devices and cloud, carried from one side of the continent to the other.
+					</p>
+				</li>
+				<li data-reveal>
+					<span class="idx">[4]</span>
+					<h3>Now, after bedtime</h3>
+					<p>
+						There's a tiny human at home, so most commits land once the house goes quiet.
+						Everything I build here stays open, for each developer who wants to read it,
+						fork it, or learn from it.
+					</p>
+				</li>
+			</ol>
+
+			<dl class="stats" data-stagger>
+				<div data-reveal><dt><span data-count="18">18</span>+</dt><dd>years writing software</dd></div>
+				<div data-reveal><dt><span data-count="2009" data-from="1999">2009</span></dt><dd>the first class I taught</dd></div>
+				<div data-reveal><dt><span data-count="5">5</span></dt><dd>open-source projects</dd></div>
+				<div data-reveal><dt><span data-count="2">2</span></dt><dd>countries I call home</dd></div>
+			</dl>
+		</section>
+
+		<section id="about" class="wrap about">
+			<h2 class="section-title" data-reveal><span>03</span> Who's behind it</h2>
+			<div class="about-body" data-reveal>
+				<img class="avatar" src="/assets/brand/avatar-512.png" width="160" height="160" alt="forEach developer avatar" />
+				<div>
+					<p>
+						I'm <strong>Sergio Marin</strong>, a senior software engineer in Santiago, Chile,
+						with Venezuelan roots. By day I work on distributed systems, edge compute and cloud
+						orchestration, and lately on AI infrastructure and MCP servers.
+					</p>
+					<p>
+						forEach developer is where everything else goes: small, focused tools that respect
+						your hardware and your privacy. Each one gets its own home at
+						<code>&lt;project&gt;.foreachdeveloper.com</code>.
+					</p>
+					<ul class="socials">
+						<li><a href="https://highercomve.github.io/">Résumé</a></li>
+						<li><a href="https://github.com/highercomve">GitHub</a></li>
+						<li><a href="https://www.linkedin.com/in/highercomve">LinkedIn</a></li>
+						<li><a href="https://gitlab.com/highercomve">GitLab</a></li>
+						<li><a href="https://medium.com/@highercomve">Medium</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="wrap">
+		<div class="footer">
+			<svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+				<g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M17 13H9v38h8" />
+					<path d="M47 13h8v38h-8" />
+				</g>
+				<circle class="d1" cx="21.5" cy="32" r="4.2" />
+				<circle class="d2" cx="32" cy="32" r="4.2" />
+				<circle class="d3" cx="42.5" cy="32" r="4.2" />
+			</svg>
+			<span>© 2026 forEach developer · Hecho con cariño en Santiago, con raíces en Venezuela.</span>
+			<span class="hint" title="↑ ↑ ↓ ↓ ← → ← → B A">press start</span>
+		</div>
+	</footer>
+
+	<div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

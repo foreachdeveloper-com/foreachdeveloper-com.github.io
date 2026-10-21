@@ -14,6 +14,15 @@ bun run dev
 Opens a live-reloading server at http://localhost:3000. CSS changes are swapped in place;
 anything else reloads the page.
 
+## Deploy
+
+Pushes to `main` deploy to Cloudflare Pages (project `foreachdeveloper`) through
+`.github/workflows/deploy.yml`; pull requests get a preview URL. Only the site files are
+published, not `dev.ts` or `package.json`. The workflow needs two repository secrets:
+
+- `CLOUDFLARE_API_TOKEN`: an API token with the **Cloudflare Pages: Edit** permission
+- `CLOUDFLARE_ACCOUNT_ID`: the account ID from the Cloudflare dashboard
+
 ## Layout
 
 - `index.html`, `styles.css`, `script.js`: the page

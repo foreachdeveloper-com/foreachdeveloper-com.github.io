@@ -2,7 +2,7 @@
 
 Landing page for **forEach developer**, the open-source studio of [Sergio Marin](https://highercomve.github.io/).
 
-Plain HTML, CSS and JavaScript with no build step, served by GitHub Pages at
+Plain HTML, CSS and JavaScript with no build step, served by Cloudflare Pages at
 [foreachdeveloper.com](https://foreachdeveloper.com).
 
 ## Develop

@@ -30,13 +30,14 @@ jobs:
       - name: Collect site files
         run: |
           mkdir dist
-          cp -r index.html styles.css script.js game.js favicon.ico site.webmanifest assets dist/
+          cp -r index.html 404.html styles.css script.js game.js favicon.ico site.webmanifest assets dist/
 
       - name: Skip without Cloudflare credentials
         if: env.HAS_TOKEN != 'true'
         run: echo "::notice::CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID is not set; skipping deploy."
 
-      # main deploys to production; any other branch becomes a preview
+      # main deploys to production; any other branch becomes a preview.
+      # The Pages project is created on the first deploy if it doesn't exist.
       - name: Deploy
         if: env.HAS_TOKEN == 'true'
         uses: cloudflare/wrangler-action@v4
@@ -44,5 +45,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          preCommands: npx wrangler pages project create ${{ env.PROJECT }} --production-branch=main || true
           command: pages deploy dist --project-name=${{ env.PROJECT }} --branch=${{ github.head_ref || github.ref_name }} --commit-dirty=true

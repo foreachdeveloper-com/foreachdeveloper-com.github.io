@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Not found — forEach developer</title>
+	<meta name="robots" content="noindex" />
+	<meta name="theme-color" content="#14161B" />
+	<link rel="icon" href="/favicon.ico" sizes="48x48" />
+	<link rel="icon" href="/assets/favicon/favicon.svg" type="image/svg+xml" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="/styles.css" />
+	<style>
+		.lost {
+			display: grid;
+			min-height: 100vh;
+			place-content: center;
+			gap: 20px;
+			padding: 24px 16px;
+			text-align: center;
+		}
+		.lost .mark { width: 120px; height: 120px; margin: 0 auto; }
+		.lost .mark circle { animation-name: lost; }
+		.lost h1 { font-size: clamp(32px, 6vw, 56px); }
+		.lost p { margin: 0; color: var(--muted); }
+		.lost .cta { justify-content: center; margin-top: 12px; }
+
+		@keyframes lost {
+			0%, 100% { fill-opacity: 0.15; }
+			50% { fill-opacity: 0.5; }
+		}
+	</style>
+</head>
+<body>
+	<main class="lost">
+		<svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+			<g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M17 13H9v38h8" />
+				<path d="M47 13h8v38h-8" />
+			</g>
+			<circle class="d1" cx="21.5" cy="32" r="4" />
+			<circle class="d2" cx="32" cy="32" r="4" />
+			<circle class="d3" cx="42.5" cy="32" r="4" />
+		</svg>
+		<p><code>projects[404]</code> → <code>undefined</code></p>
+		<h1>Index out of range.</h1>
+		<p>The loop went one step too far. This page doesn't exist, or it moved.</p>
+		<div class="cta">
+			<a class="btn" href="/">Back to the start</a>
+		</div>
+	</main>
+</body>
+</html>
